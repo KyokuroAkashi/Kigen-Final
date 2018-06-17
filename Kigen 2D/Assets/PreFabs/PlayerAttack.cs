@@ -18,6 +18,11 @@ public class PlayerAttack : MonoBehaviour {
 
     Animator anim;
 
+    int contador = 5;
+    int startingHealth;
+    
+    
+
     // Use this for initialization
     void Awake () {
         anim = gameObject.GetComponent<Animator>();
@@ -29,8 +34,12 @@ public class PlayerAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        Die();
+       
         if (Input.GetKey(KeyCode.F) && !attacking)
         {
+            
+
             attacking = true;
             attackTimer = attackCd;
 
@@ -53,13 +62,24 @@ public class PlayerAttack : MonoBehaviour {
 	}
     void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        if (contador <= 0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
 
     }
+
+    void VidaAnim()
+    {
+        
+    }
+
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Enemy"))
         {
+            startingHealth = contador;
+
             if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
                 Destroy(col.gameObject);
@@ -68,9 +88,11 @@ public class PlayerAttack : MonoBehaviour {
             {
                 Destroy(col.gameObject);
             }
-            else
+            else 
             {
-                Die();
+                contador--;
+                VidaAnim();
+
             }
         }
         if (col.CompareTag("Coin"))
