@@ -9,6 +9,7 @@ TagManager:
   - neutralized
   - Weakness
   - Coin
+  - Ground
   layers:
   - Default
   - TransparentFX

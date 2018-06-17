@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int curHealth;
-
-    public int maxHealth = 100;
-
     public float topSpeed = 10f;
 
     bool facingRight = true;
@@ -20,19 +16,17 @@ public class Player : MonoBehaviour
 
     public Transform groundCheck;
 
-    public bool attack;
-
     float groundRadius = 0.2f;
 
     public float jumpForce = 700f;
 
-    public LayerMask WwhatIsGround;
+    public LayerMask WhatIsGround;
+
+    
 
     void Start()
     {
         anim = GetComponent<Animator>();
-
-        curHealth = maxHealth;
     }
 
     void Update()
@@ -41,7 +35,7 @@ public class Player : MonoBehaviour
         Running();
 
         Jumping();
-
+            
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("Ground", false);
@@ -50,22 +44,12 @@ public class Player : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
         }
 
-        if (curHealth > maxHealth)
-        {
-            curHealth = maxHealth;
-        }
-
-        if (curHealth <= 0)
-        {
-            Die();
-        }
-
     }
 
      void FixedUpdate()
     {
 
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WwhatIsGround);
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
 
         anim.SetBool("Ground", grounded);
 
@@ -118,39 +102,6 @@ public class Player : MonoBehaviour
         Application.LoadLevel(Application.loadedLevel);
 
     }
-
-    public void Damage(int damage)
-    {
-        curHealth =- damage;
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Enemy"))
-        {
-            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-            {
-                Destroy(col.gameObject);
-            }
-            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Jump Attack"))
-            {
-                Destroy(col.gameObject);
-            }
-            else
-            {
-                Die();
-            }
-                
-
-            
-        }
-        if (col.CompareTag("Coin"))
-        {
-            Destroy(col.gameObject);
-        }
-    }
-
-    
 }
 
 

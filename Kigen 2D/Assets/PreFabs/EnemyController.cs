@@ -30,7 +30,6 @@ public class EnemyController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         Physics2D.queriesStartInColliders = true;
-        curHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -50,11 +49,6 @@ public class EnemyController : MonoBehaviour
 
         }
 
-        if (curHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-
     }
 
     void OnDrawGizmos()
@@ -63,44 +57,6 @@ public class EnemyController : MonoBehaviour
 
         Gizmos.DrawLine(sightStart.position, sightEnd.position);
     }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Player")
-        {
-
-            float height = col.contacts[0].point.y - weakness.position.y;
-
-            if (height > 1)
-            {
-                anim.SetBool("stomped", true);
-                Destroy(gameObject, 0.5f);
-                gameObject.tag = "neutralized";
-
-
-            }
-
-
-        }
-
-
-    }
-
-    private void Dies()
-    {
-        anim.SetBool("stomped", true);
-        Destroy(gameObject, 0.5f);
-        gameObject.tag = "neutralized";
-
-
-    }
-
-    public void Damage(int damage)
-    {
-        curHealth =- damage;
-
-    }
-
 
 
 
