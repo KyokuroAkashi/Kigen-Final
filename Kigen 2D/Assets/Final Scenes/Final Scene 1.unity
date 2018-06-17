@@ -1130,6 +1130,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.79837036, y: 8.121475}
   m_EdgeRadius: 0
+--- !u!1001 &132853481
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -66.259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.0809772
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579021484284024, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &173398363
 Prefab:
   m_ObjectHideFlags: 0
@@ -2366,6 +2408,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1971122716545542, guid: 2130bda15f483cc41a02868cf8f1b3b7,
     type: 2}
   m_PrefabInternal: {fileID: 1806450692}
+--- !u!114 &1756556857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756556856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9675a984845e11b4d9be8aa49056f4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1620646341270772, guid: d18140e87325c6a4dba2a30f5b6f3fd2, type: 2}
+  velocity: {x: 500, y: 0}
+  offset: {x: 0.4, y: 0.1}
+  cooldown: 1
 --- !u!1001 &1806450692
 Prefab:
   m_ObjectHideFlags: 0
