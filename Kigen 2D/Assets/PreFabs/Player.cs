@@ -96,6 +96,12 @@ public class Player : MonoBehaviour
             anim.SetBool("Jump", false);
         }
     }
+
+    void Die()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+
+    }
 }
 
 
