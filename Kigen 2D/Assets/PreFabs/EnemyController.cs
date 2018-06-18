@@ -28,7 +28,6 @@ public class EnemyController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        anim = GetComponent<Animator>();
         Physics2D.queriesStartInColliders = true;
     }
 

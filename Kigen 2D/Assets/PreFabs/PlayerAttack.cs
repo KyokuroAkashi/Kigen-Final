@@ -34,7 +34,6 @@ public class PlayerAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Die();
        
         if (Input.GetKey(KeyCode.F) && !attacking)
         {
@@ -57,28 +56,13 @@ public class PlayerAttack : MonoBehaviour {
                 attackTrigger.enabled = false;
             }
         }
-
         anim.SetBool("Attack", attacking);
 	}
-    void Die()
-    {
-        if (contador <= 0)
-        {
-            Application.LoadLevel(Application.loadedLevel);
-        }
-
-    }
-
-    void VidaAnim()
-    {
-        
-    }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Enemy"))
         {
-            startingHealth = contador;
 
             if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
@@ -90,8 +74,6 @@ public class PlayerAttack : MonoBehaviour {
             }
             else 
             {
-                contador--;
-                VidaAnim();
 
             }
         }
