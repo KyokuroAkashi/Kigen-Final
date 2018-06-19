@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
+
     }
 
     void Update()
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
         }
+
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour
     {
         if (CP.gameObject.CompareTag("Finish"))
         {
-            Application.LoadLevel(1);
+            Application.LoadLevel(2);
         }
     }
 }

@@ -22,7 +22,7 @@ public class sceneLink : MonoBehaviour {
     {
         if (CP.gameObject.CompareTag("Player"))
         {
-            Application.LoadLevel (1);
+            Application.LoadLevel (2);
         }
     }
 }

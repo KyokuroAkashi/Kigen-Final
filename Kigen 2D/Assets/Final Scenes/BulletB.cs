@@ -9,26 +9,34 @@ public class BulletB : MonoBehaviour {
     private float MaxTime = 0;
     private float TimePassed = 0;
 
-    // Use this for initialization
-    void Start () {
+    Animator anim;
 
+    // Use this for initialization
+    void Start() {
+
+        anim = gameObject.GetComponent<Animator>();
         MaxTime = Time.time - TimePassed;
         TimePassed = TimeEx;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        col.enabled = true;
-	}
-    public void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Enemy"))
-        {
 
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        col.enabled = true;
+    }
+
+        public void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.CompareTag("Enemy"))
+            {
+
+                Destroy(col.gameObject);
+                Destroy(gameObject);
+
+            }
 
         }
-    }
+
 }
+

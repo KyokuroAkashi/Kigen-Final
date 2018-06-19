@@ -58,7 +58,7 @@ public class PlayerAttack : MonoBehaviour {
 
     public void Die()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        Application.LoadLevel(0);
     }
 
     public void OnTriggerEnter2D(Collider2D col)

@@ -97,8 +97,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1013567447554824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.32, y: 1.88, z: -0.7}
-  m_LocalScale: {x: 0.15442663, y: 0.11523572, z: 1}
+  m_LocalPosition: {x: 67.5, y: 52.7, z: -0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4323017260239780}
   - {fileID: 4624413718291606}
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 12.03
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -207,12 +207,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf3bf4994320544483788f78f1f7b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topSpeed: 5
+  topSpeed: 30
   groundCheck: {fileID: 4323017260239780}
-  jumpForce: 500
+  jumpForce: 2500
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 2147483648
+  currentHealth: 0
+  maxHealth: 5
+  CP: {fileID: 0}
 --- !u!114 &114793356322977132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   velocity: {x: 100, y: 0}
-  offset: {x: 0.4, y: 0.1}
+  offset: {x: 1, y: 0.25}
   cooldown: 0.2
   col: {fileID: 0}
 --- !u!212 &212831237942103212
