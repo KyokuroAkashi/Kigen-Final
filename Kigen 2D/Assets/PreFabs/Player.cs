@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public int maxHealth = 5;
 
+    public Collider2D CP;
+
 
 
     void Start()
@@ -44,11 +46,11 @@ public class Player : MonoBehaviour
         Running();
 
         Jumping();
-            
+
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("Ground", false);
-            
+
 
             GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
         }
@@ -63,7 +65,7 @@ public class Player : MonoBehaviour
 
     }
 
-     void FixedUpdate()
+    void FixedUpdate()
     {
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, WhatIsGround);
@@ -92,11 +94,11 @@ public class Player : MonoBehaviour
 
     private void Running()
     {
-        if(Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
+        if (Input.GetKeyDown(KeyCode.D) || (Input.GetKeyDown(KeyCode.A)))
         {
             anim.SetBool("Running", true);
         }
-        if(Input.GetKeyUp(KeyCode.D) || (Input.GetKeyUp(KeyCode.A)))
+        if (Input.GetKeyUp(KeyCode.D) || (Input.GetKeyUp(KeyCode.A)))
         {
             anim.SetBool("Running", false);
         }
@@ -111,6 +113,14 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             anim.SetBool("Jump", false);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D CP)
+    {
+        if (CP.gameObject.CompareTag("Finish"))
+        {
+            Application.LoadLevel(1);
         }
     }
 }

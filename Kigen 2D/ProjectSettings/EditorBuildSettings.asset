@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Final Scene Test 1.unity
     guid: f4d96bb754157084e97ec0106d7b81db
-  - enabled: 1
+  - enabled: 0
     path: Assets/Testint 1.unity
     guid: 262f6f07b76949448909994e54b9adb4
+  - enabled: 1
+    path: Assets/Final Scenes/Final Scene 1.unity
+    guid: 7cfce5ce37f1a2442b52c6a34c83efc0
+  - enabled: 1
+    path: Assets/Final Scenes/Boss Scene.unity
+    guid: 36a574fd4b494a7408f97f8df7db436e
