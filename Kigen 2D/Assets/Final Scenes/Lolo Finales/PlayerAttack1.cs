@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour {
+public class PlayerAttack1 : MonoBehaviour {
 
     private Player player;
 
@@ -18,8 +18,6 @@ public class PlayerAttack : MonoBehaviour {
 
     Animator anim;
     
-    
-
     // Use this for initialization
     void Awake () {
         anim = gameObject.GetComponent<Animator>();
@@ -31,11 +29,8 @@ public class PlayerAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-       
         if (Input.GetKey(KeyCode.F) && !attacking)
         {
-            
-
             attacking = true;
             attackTimer = attackCd;
 
@@ -53,18 +48,16 @@ public class PlayerAttack : MonoBehaviour {
                 attackTrigger.enabled = false;
             }
         }
+
         anim.SetBool("Attack", attacking);
 	}
-
-    public void Die()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
-
+  
+    
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Enemy"))
         {
+           
 
             if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
             {
@@ -74,22 +67,7 @@ public class PlayerAttack : MonoBehaviour {
             {
                 Destroy(col.gameObject);
             }
-            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-            {
-                Die();
-
-            }
-            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Running"))
-            {
-                Die();
-
-            }
-            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Jumping"))
-            {
-                Die();
-
-            }
-
+           
         }
         if (col.CompareTag("Coin"))
         {

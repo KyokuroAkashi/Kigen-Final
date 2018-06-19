@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour {
+public class ScriptMoneda : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +14,11 @@ public class Health : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnTriggerEnter2D(Collider2D player)
+    {
+        if (player.tag == "player")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

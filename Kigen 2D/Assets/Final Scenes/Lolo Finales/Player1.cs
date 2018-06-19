@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     public float topSpeed = 10f;
 
@@ -25,14 +25,11 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public int maxHealth = 5;
 
-
-
     void Start()
     {
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
     }
-
     void Die()
     {
         Application.LoadLevel(Application.loadedLevel);
@@ -60,7 +57,6 @@ public class Player : MonoBehaviour
         {
             Die();
         }
-
     }
 
      void FixedUpdate()
